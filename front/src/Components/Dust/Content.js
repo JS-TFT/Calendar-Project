@@ -10,7 +10,6 @@ const Content = () => {
   const selectedCity = useRecoilValue(selectedCityState);
   const dustFilterList = useRecoilValue(dustFilterListState);
 
-  console.log(dustFilterList.length);
   return (
     <>
       {selectedCity && (
