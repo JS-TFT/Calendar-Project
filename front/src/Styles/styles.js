@@ -40,7 +40,7 @@ export const useStyles = makeStyles((theme) => {
     offset: theme.mixins.toolbar,
     page: {
       backgroundColor: '#f7f7f7',
-      padding: theme.spacing(2),
+      padding: theme.spacing(3),
     },
 
     // component
