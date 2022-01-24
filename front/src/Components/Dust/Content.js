@@ -21,6 +21,7 @@ const Content = () => {
               <DustCard key={dustCard.dataTime} dustData={dustCard} />
             ))}
           </Grid>
+          
         </>
       )}
     </>

@@ -6,6 +6,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import { Box } from "@material-ui/core";
 import { useStyles } from "../../Styles/styles";
 import CalendarModal from "./CalendarModal";
+import dayjs from 'dayjs'
 
 import { useRecoilState, useRecoilValue, useResetRecoilState } from "recoil";
 import {
@@ -47,8 +48,9 @@ function Calendar() {
       setTitle(event.title);
       setStartTime(event.start);
       setEndTime(event.end);
+      setSelectedDate(dayjs(event.start).format('YYYY-MM-DD'))
     },
-    [setEventClick, setSelectedEventId, setTitle, setStartTime, setEndTime]
+    [setEventClick, setSelectedEventId, setTitle, setStartTime, setEndTime, setSelectedDate]
   );
 
   useEffect(() => {

@@ -16,15 +16,7 @@ export default function EventDelete() {
 
   const onSubmit = useCallback(() => {
     async function deleteEventData() {
-      await axios
-        .delete(`http://localhost:4000/events/${selectedEventId}`, {})
-        .then(function (response) {
-          if (response.data.success) {
-          }
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
+      await axios.delete(`http://localhost:4000/events/${selectedEventId}`)
     }
     deleteEventData();
 

@@ -1,7 +1,7 @@
-import { React, useCallback } from "react";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import axios from "axios";
+import { React, useCallback } from 'react';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import axios from 'axios';
 import {
   selectedDateState,
   toggleModalState,
@@ -10,10 +10,10 @@ import {
   eventStartTimeState,
   eventEndTimeState,
   selectedEventIdState,
-} from "../../../Recoil/atoms";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { calcEventTime } from "./CalcEventTime";
-import { ModalState } from "./ModalState";
+} from '../../../Recoil/atoms';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { calcEventTime } from './CalcEventTime';
+import { ModalState } from './ModalState';
 
 export default function EventUpdate() {
   const [eventList, setEventList] = useRecoilState(eventListState);
@@ -27,22 +27,14 @@ export default function EventUpdate() {
   const disabled = ModalState(eventStartTime, eventEndTime, eventTitle);
 
   const onSubmit = useCallback(() => {
-    async function updateEventData() {
-      await axios
-        .put(`http://localhost:4000/events/${selectedEventId}`, {
-          id: selectedEventId,
-          title: eventTitle,
-          start: selectedDate + calcEventTime(eventStartTime),
-          end: selectedDate + calcEventTime(eventEndTime),
-        })
-        .then(function (response) {
-          if (response.data.success) {
-          }
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    }
+    const updateEventData = async () => {
+      await axios.put(`http://localhost:4000/events/${selectedEventId}`, {
+        id: selectedEventId,
+        title: eventTitle,
+        start: selectedDate + calcEventTime(eventStartTime),
+        end: selectedDate + calcEventTime(eventEndTime),
+      });
+    };
     updateEventData();
 
     setEventList(
@@ -75,7 +67,7 @@ export default function EventUpdate() {
       direction="row"
       spacing={2}
       sx={{
-        paddingTop: "10px",
+        paddingTop: '10px',
       }}
     >
       <Button
