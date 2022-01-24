@@ -5,13 +5,7 @@ import Filter from '../Components/Dust/Filter';
 import Content from '../Components/Dust/Content';
 import { useRecoilState } from 'recoil';
 import { dustDataState } from '../Recoil/atoms';
-
-/*
-0 ~ 30 좋음
-31 ~ 80 보통
-81 ~ 150 나쁨
-151이상 매우나쁨
-*/
+import Description from '../Components/Dust/Description';
 
 const Dust = () => {
   const [, setDustData] = useRecoilState(dustDataState);
@@ -38,6 +32,7 @@ const Dust = () => {
   return (
     <Container>
       <Filter />
+      <Description />
       <Content />
     </Container>
   );

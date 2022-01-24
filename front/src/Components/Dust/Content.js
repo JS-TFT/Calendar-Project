@@ -4,6 +4,7 @@ import { useRecoilValue } from 'recoil';
 import { selectedCityState } from '../../Recoil/atoms';
 import { dustFilterListState } from '../../Recoil/selectors';
 import DustCard from './DustCard';
+import { cityData } from './DustList';
 
 const Content = () => {
   const selectedCity = useRecoilValue(selectedCityState);
@@ -14,7 +15,7 @@ const Content = () => {
       {selectedCity && (
         <>
           <Typography variant="h4" color="primary">
-            {selectedCity}
+            {cityData.find((data) => data.code === selectedCity).name}
           </Typography>
           <Grid container spacing={3}>
             {dustFilterList.map((dustCard) => (
