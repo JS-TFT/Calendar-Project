@@ -1,7 +1,7 @@
-import { React, useCallback, useEffect } from "react";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import axios from "axios";
+import { React, useCallback } from 'react';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import axios from 'axios';
 import {
   selectedDateState,
   toggleModalState,
@@ -9,10 +9,10 @@ import {
   eventTitleState,
   eventStartTimeState,
   eventEndTimeState,
-} from "../../../Recoil/atoms";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { calcEventTime } from "./CalcEventTime";
-import { ModalState } from "./ModalState";
+} from '../../../Recoil/atoms';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { calcEventTime } from './CalcEventTime';
+import { ModalState } from './ModalState';
 
 export default function EventCreate() {
   const [eventList, setEventList] = useRecoilState(eventListState);
@@ -25,25 +25,17 @@ export default function EventCreate() {
   const disabled = ModalState(eventStartTime, eventEndTime, eventTitle);
 
   const onSubmit = useCallback(() => {
-    async function createEventData() {
-      await axios
-        .post(`http://localhost:4000/events`, {
-          id: Date.now(),
-          title: eventTitle,
-          start: selectedDate + calcEventTime(eventStartTime),
-          end: selectedDate + calcEventTime(eventEndTime),
-        })
-        .then(function (response) {
-          if (response.data.success) {
-            console.log("successful");
-          }
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    }
+    const createEventData = async () => {
+      await axios.post(`http://localhost:4000/events`, {
+        id: Date.now(),
+        title: eventTitle,
+        start: selectedDate + calcEventTime(eventStartTime),
+        end: selectedDate + calcEventTime(eventEndTime),
+      });      
+    };
 
     createEventData();
+
     setEventList([
       ...eventList,
       {
@@ -70,7 +62,7 @@ export default function EventCreate() {
       direction="row"
       spacing={2}
       sx={{
-        paddingTop: "10px",
+        paddingTop: '10px',
       }}
     >
       <Button
