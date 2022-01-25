@@ -1,6 +1,7 @@
 import { Box, Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import { useStyles } from '../../Styles/styles';
+import { dustStateList } from './DustList';
 
 const Description = () => {
   const styles = useStyles();
@@ -10,41 +11,18 @@ const Description = () => {
       <Typography variant="h4" color="primary">
         미세먼지 농도
       </Typography>
-
       <Box className={styles.box}>
         <Grid container spacing={2}>
-          <Grid item md={3} sm={6} xs={12}>
-            <Typography variant="h6" align="center">
-              0 ~ 30
-            </Typography>
-            <Typography variant="h5" align="center" color="primary">
-              좋음
-            </Typography>
-          </Grid>
-          <Grid item md={3} sm={6} xs={12}>
-            <Typography variant="h6" align="center">
-              31 ~ 80
-            </Typography>
-            <Typography variant="h5" align="center" color="textSecondary">
-              보통
-            </Typography>
-          </Grid>
-          <Grid item md={3} sm={6} xs={12}>
-            <Typography variant="h6" align="center">
-              81 ~ 150
-            </Typography>
-            <Typography variant="h5" align="center" color="secondary">
-              나쁨
-            </Typography>
-          </Grid>
-          <Grid item md={3} sm={6} xs={12}>
-            <Typography variant="h6" align="center">
-              151 이상
-            </Typography>
-            <Typography variant="h5" align="center" color="secondary">
-              매우 나쁨
-            </Typography>
-          </Grid>
+          {dustStateList.map((data) => (
+            <Grid item md={3} sm={6} xs={12}>
+              <Typography variant="h6" align="center">
+                {data.text}
+              </Typography>
+              <Typography variant="h5" align="center" color={data.color}>
+                {data.state}
+              </Typography>
+            </Grid>
+          ))}
         </Grid>
       </Box>
       <Grid container>
