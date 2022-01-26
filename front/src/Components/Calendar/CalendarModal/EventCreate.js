@@ -25,28 +25,34 @@ export default function EventCreate() {
   const disabled = ModalState(eventStartTime, eventEndTime, eventTitle);
 
   const onSubmit = useCallback(() => {
-    const createEventData = async () => {
-      await axios.post(`http://localhost:4000/events`, {
-        id: Date.now(),
-        title: eventTitle,
-        start: selectedDate + calcEventTime(eventStartTime),
-        end: selectedDate + calcEventTime(eventEndTime),
-      });      
-    };
+    try {
+      const createEventData = async () => {
+        await axios.post(`http://localhost:4000/events`, {
+          id: Date.now(),
+          title: eventTitle,
+          start: selectedDate + calcEventTime(eventStartTime),
+          end: selectedDate + calcEventTime(eventEndTime),
+        });
+      };
+  
+      createEventData();
+  
+      setEventList([
+        ...eventList,
+        {
+          id: Date.now(),
+          title: eventTitle,
+          start: selectedDate + calcEventTime(eventStartTime),
+          end: selectedDate + calcEventTime(eventEndTime),
+        },
+      ]);
+  
+      setToggleModal((prev) => !prev);
 
-    createEventData();
 
-    setEventList([
-      ...eventList,
-      {
-        id: Date.now(),
-        title: eventTitle,
-        start: selectedDate + calcEventTime(eventStartTime),
-        end: selectedDate + calcEventTime(eventEndTime),
-      },
-    ]);
-
-    setToggleModal((prev) => !prev);
+    } catch (err) {
+      console.error(err)
+    }
   }, [
     eventTitle,
     eventStartTime,

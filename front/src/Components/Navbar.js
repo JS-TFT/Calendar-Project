@@ -12,7 +12,7 @@ const Navbar = () => {
       <List className={classes.drawerList}>
         {listItem.map((text) => (
           <ListItem key={text}>
-            <Link to={`/${text}`} className={classes.link}>
+            <Link to={`/${text === '' ? null : text}`} className={classes.link}>
               <ListItemText  primary={text} />
             </Link>
           </ListItem>

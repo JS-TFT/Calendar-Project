@@ -12,7 +12,7 @@ const Description = () => {
       </Typography>
       <Box className={classes.box}>
         <Typography variant='body1'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae magnam fugiat ipsa placeat neque, officia vero. Consectetur quisquam molestias quis sit, fuga, quae modi vel sequi quo tempore, eos voluptas!
+          시간이 걸릴 수 있습니다! 조금만 기다려 주세요!
         </Typography>
         <Grid container></Grid>
         <Typography variant="subtitle1" align="right" color="textPrimary">
