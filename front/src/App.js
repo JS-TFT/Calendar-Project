@@ -14,7 +14,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Layout>
           <Routes>
-            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/Weather" element={<Weather />} />
             <Route path="/dust" element={<Dust />} />
           </Routes>
