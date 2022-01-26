@@ -14,7 +14,7 @@ const Description = () => {
       <Box className={styles.box}>
         <Grid container spacing={2}>
           {dustStateList.map((data) => (
-            <Grid item md={3} sm={6} xs={12}>
+            <Grid item md={3} sm={6} xs={12} key={data.state}>
               <Typography variant="h6" align="center">
                 {data.text}
               </Typography>
