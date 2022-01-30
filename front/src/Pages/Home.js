@@ -10,6 +10,7 @@ const Home = () => {
   const [, setEventList] = useRecoilState(eventListState);
 
   useEffect(() => {
+    console.log(API_ENDPOINT);
     const fetchEventData = async () => {
       const res = await axios.get(`${REACT_APP_API_ENDPOINT}`);
       setEventList(res.data);
