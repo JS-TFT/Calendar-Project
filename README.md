@@ -20,24 +20,35 @@
 - <code>style</code> : 스타일 변경(reformat, indent)
 - <code>chore</code> : 단순한 작업
 
-
 ## PR Rules
 - feature -> develop : merge commit
 - develop -> main : merge commit
 
-## Introduce
-introduce (Project)
+## 🏃Project
+- 팀명 : JS-TFT
+- 기간 : 1/5 ~ 1/30 (주 2회)
+- 프로젝트명 : Calendar-Project
 
-## Main Feature
-- feature1 (Project)
-- feature2 (Material-UI)
-- feature3 (Recoil)
+## 📃Introduce
+- 캘린더를 통해 일정을 관리하는 기능을 제공합니다. 일정을 추가, 삭제, 수정을 할 수 있습니다.
 
-## Stack
+- 지역별 날씨를 알려주는 기능을 제공합니다. 최저, 최고, 평균 기온으로 필터 기능을 구현했습니다.
+
+- 지역별 미세먼지를 알려주는 기능을 제공합니다. 미세먼지 농도 정도에 따라 필터을 구현해 쉽게 미세먼지 농도를 구분할 수 있습니다.
+
+## 🌟Main Feature
+- React-router-dom : Router 구분
+- Material-UI : UI 디자인
+- Recoil : Atom 상태 관리, selector 필터 기능
+
+## 🔧Stack
 
 ### Frontend
 - Language : JavaScript
-- Library & Framework : React, Material-UI, Recoil
+- Library & Framework : React, Material-UI, Recoil, FullCalendar
+- Deploy : Netlify
 
 ### Backend
 - Language : JavaScript(nodeJS)
+- Library & Framework : 
+- Deploy : 
