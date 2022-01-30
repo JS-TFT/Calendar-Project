@@ -1,7 +1,7 @@
-import { React, useCallback } from 'react';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import axios from 'axios';
+import { React, useCallback } from "react";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import axios from "axios";
 import {
   selectedDateState,
   toggleModalState,
@@ -9,10 +9,11 @@ import {
   eventTitleState,
   eventStartTimeState,
   eventEndTimeState,
-} from '../../../Recoil/atoms';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { calcEventTime } from './CalcEventTime';
-import { ModalState } from './ModalState';
+} from "../../../Recoil/atoms";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { calcEventTime } from "./CalcEventTime";
+import { ModalState } from "./ModalState";
+import { API_ENDPOINT } from "../../../Constants/AppVariables";
 
 export default function EventCreate() {
   const [eventList, setEventList] = useRecoilState(eventListState);
@@ -27,16 +28,16 @@ export default function EventCreate() {
   const onSubmit = useCallback(() => {
     try {
       const createEventData = async () => {
-        await axios.post(`http://localhost:4000/events`, {
+        await axios.post(`${API_ENDPOINT}`, {
           id: Date.now(),
           title: eventTitle,
           start: selectedDate + calcEventTime(eventStartTime),
           end: selectedDate + calcEventTime(eventEndTime),
         });
       };
-  
+
       createEventData();
-  
+
       setEventList([
         ...eventList,
         {
@@ -46,12 +47,10 @@ export default function EventCreate() {
           end: selectedDate + calcEventTime(eventEndTime),
         },
       ]);
-  
+
       setToggleModal((prev) => !prev);
-
-
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
   }, [
     eventTitle,
@@ -68,7 +67,7 @@ export default function EventCreate() {
       direction="row"
       spacing={2}
       sx={{
-        paddingTop: '10px',
+        paddingTop: "10px",
       }}
     >
       <Button
