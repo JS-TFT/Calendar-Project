@@ -4,14 +4,14 @@ import Calendar from "../Components/Calendar/Calendar";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import { eventListState } from "../Recoil/atoms";
-import { API_ENDPOINT } from "../Constants/AppVariables";
+import { REACT_APP_API_ENDPOINT } from "../Constants/AppVariables";
 
 const Home = () => {
   const [, setEventList] = useRecoilState(eventListState);
 
   useEffect(() => {
     const fetchEventData = async () => {
-      const res = await axios.get(`${API_ENDPOINT}`);
+      const res = await axios.get(`${REACT_APP_API_ENDPOINT}`);
       setEventList(res.data);
     };
 

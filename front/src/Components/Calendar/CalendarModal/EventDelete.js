@@ -8,7 +8,7 @@ import {
   selectedEventIdState,
 } from "../../../Recoil/atoms";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { API_ENDPOINT } from "../../../Constants/AppVariables";
+import { REACT_APP_API_ENDPOINT } from "../../../Constants/AppVariables";
 
 export default function EventDelete() {
   const [eventList, setEventList] = useRecoilState(eventListState);
@@ -17,7 +17,7 @@ export default function EventDelete() {
 
   const onSubmit = useCallback(() => {
     async function deleteEventData() {
-      await axios.delete(`${API_ENDPOINT}/${selectedEventId}`);
+      await axios.delete(`${REACT_APP_API_ENDPOINT}/${selectedEventId}`);
     }
     deleteEventData();
 

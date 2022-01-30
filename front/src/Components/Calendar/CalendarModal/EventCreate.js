@@ -13,7 +13,7 @@ import {
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { calcEventTime } from "./CalcEventTime";
 import { ModalState } from "./ModalState";
-import { API_ENDPOINT } from "../../../Constants/AppVariables";
+import { REACT_APP_API_ENDPOINT } from "../../../Constants/AppVariables";
 
 export default function EventCreate() {
   const [eventList, setEventList] = useRecoilState(eventListState);
@@ -28,7 +28,7 @@ export default function EventCreate() {
   const onSubmit = useCallback(() => {
     try {
       const createEventData = async () => {
-        await axios.post(`${API_ENDPOINT}`, {
+        await axios.post(`${REACT_APP_API_ENDPOINT}`, {
           id: Date.now(),
           title: eventTitle,
           start: selectedDate + calcEventTime(eventStartTime),

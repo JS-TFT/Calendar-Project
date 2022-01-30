@@ -2,7 +2,7 @@ import { React, useCallback } from "react";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
-import { API_ENDPOINT } from "../../../Constants/AppVariables";
+import { REACT_APP_API_ENDPOINT } from "../../../Constants/AppVariables";
 import {
   selectedDateState,
   toggleModalState,
@@ -29,7 +29,7 @@ export default function EventUpdate() {
 
   const onSubmit = useCallback(() => {
     const updateEventData = async () => {
-      await axios.put(`${API_ENDPOINT}/${selectedEventId}`, {
+      await axios.put(`${REACT_APP_API_ENDPOINT}/${selectedEventId}`, {
         id: selectedEventId,
         title: eventTitle,
         start: selectedDate + calcEventTime(eventStartTime),
