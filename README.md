@@ -25,3 +25,19 @@
 - feature -> develop : merge commit
 - develop -> main : merge commit
 
+## Introduce
+introduce (Project)
+
+## Main Feature
+- feature1 (Project)
+- feature2 (Material-UI)
+- feature3 (Recoil)
+
+## Stack
+
+### Frontend
+- Language : JavaScript
+- Library & Framework : React, Material-UI, Recoil
+
+### Backend
+- Language : JavaScript(nodeJS)
